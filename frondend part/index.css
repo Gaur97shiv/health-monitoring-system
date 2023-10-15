@@ -1,0 +1,59 @@
+html {
+    font-family: 'Open Sans', sans-serif;
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+    color: #444444;
+  }
+  body {
+    margin: 0px;
+  }
+  h1 {
+    margin: 50px auto 30px;
+  }
+  .side-by-side {
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+  }
+  .text {
+    font-weight: 600;
+    font-size: 19px;
+    width: 200px;
+  }
+  .reading {
+    font-weight: 300;
+    font-size: 50px;
+    padding-right: 25px;
+  }
+  .temperature .reading {
+    color: #F29C1F;
+  }
+  .humidity .reading {
+    color: #3B97D3;
+  }
+  .BPM .reading {
+    color: #FF0000;
+  }
+  .SpO2 .reading {
+    color: #955BA5;
+  }
+  .bodytemperature .reading {
+    color: #F29C1F;
+  }
+  .superscript {
+    font-size: 17px;
+    font-weight: 600;
+    position: absolute;
+    top: 10px;
+  }
+  .data {
+    padding: 10px;
+  }
+  .container {
+    display: table;
+    margin: 0 auto;
+  }
+  .icon {
+    width: 65px;
+  }
