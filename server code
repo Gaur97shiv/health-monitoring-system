@@ -1,0 +1,33 @@
+const express = require('express');
+const http = require('http');
+const socketIO = require('socket.io');
+
+const app = express();
+const server = http.createServer(app);
+const io = socketIO(server);
+
+// Handle incoming sensor data
+io.on('connection', (socket) => {
+    console.log('Client connected');
+
+    // Listen for data from ESP32
+    socket.on('sensorData', (data) => {
+        console.log('Received sensor data:', data);
+        // Process the data as needed (store in a database, send to the browser, etc.)
+        io.emit('updateData', data); // Send data to all connected clients
+    });
+
+    // Handle disconnection
+    socket.on('disconnect', () => {
+        console.log('Client disconnected');
+    });
+});
+
+// Serve static files (e.g., HTML, CSS, JS)
+app.use(express.static('public'));
+
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+});
