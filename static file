@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Data</title>
+</head>
+<body>
+    <h1>IoT Data</h1>
+    <div id="data-container"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        // Listen for data updates
+        socket.on('updateData', (data) => {
+            console.log('Received updated data:', data);
+            // Update the UI with the received data
+            document.getElementById('data-container').innerHTML = JSON.stringify(data, null, 2);
+        });
+    </script>
+</body>
+</html>
